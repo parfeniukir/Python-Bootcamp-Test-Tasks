@@ -14,18 +14,18 @@ def video_for_url_to_gif():
     Function that input a video url address and return a path to GIF image.
     '''
     url = input("Enter the URL\n")
-    name = input("Enter the name for the video\n")
-    name_mp4 = name + ".mp4"
+    video_name = input("Enter the name for the video\n")
+    video_name_mp4 = video_name + ".mp4"
     try:
         print("Downloading start...\n")
-        urllib.request.urlretrieve(url, name_mp4)
+        urllib.request.urlretrieve(url, video_name_mp4)
         print("Download completed!")
     except Exception as e:
         print(e)
 
-    videoClip = VideoFileClip(name_mp4)
-    videoClip.write_gif(f"{name}.gif")
-    print(os.path.abspath(f'{name}.gif'))
+    video_clip = VideoFileClip(video_name_mp4)
+    video_clip.write_gif(f"{video_name}.gif")
+    print(os.path.abspath(f'{video_name}.gif'))
 
 
 if __name__ == "__main__":
